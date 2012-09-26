@@ -10,6 +10,48 @@
   <script src="../libs/qunit/qunit.js"></script>
   <!-- Load local lib and tests. -->
   <script src="../src/toboggan.js"></script>
+  <style>
+  li {display: block; float: left;}
+
+  .titles {
+    display:block;
+    width:200px;
+    height:20px;
+    background: wheat;
+    text-align:center;
+  }
+  .titles li {
+    display:inline;
+    margin-left:20px;
+  }
+  .titles li:first-child {
+    margin-left:0;
+  }
+
+  .content li {
+    width:200px;
+    height:300px;
+  }
+  .content {
+    display:block;
+    width:9999px;
+    height:300px;
+    position:absolute;
+
+  }
+  .content .active {
+
+  }
+
+  .contentWrapper {
+    width:200px;
+    height:300px;
+    border:1px solid red;
+
+    position:relative;
+  }
+  ​
+  </style>
   <script src="toboggan_test.js"></script>
   <!-- Removing access to jQuery and $. But it'll still be available as _$, if
        you REALLY want to mess around with jQuery in the console. REMEMBER WE
@@ -23,9 +65,24 @@
   <h2 id="qunit-userAgent"></h2>
   <ol id="qunit-tests"></ol>
   <div id="qunit-fixture">
-    <span>lame test markup</span>
-    <span>normal test markup</span>
-    <span>awesome test markup</span>
+
+    <ul class="titles">
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ul>
+
+    <div class="contentWrapper">
+        <ul class="content">
+            <li class="active">item 1 content</li>
+            <li>item 2 content that is slightly longer than the others</li>
+            <li>item 3 content</li>
+        </ul>
+    </div>
+
+    <a href="#" class="prev">prev</a>
+    <a href="#" class="next">next</a>
+    ​
   </div>
 </body>
 </html>
