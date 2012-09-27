@@ -23,23 +23,20 @@
         $activeSlide = $content.find(".active");
 
         if (!$slide.hasClass("active")) {
-          if ($activeSlide.index() > index) {
-           operator = "+=";
-         } else {
-           operator = "-=";
-         }
+          $activeSlide.removeClass("active");
 
-         $content.animate({ left: operator + wrapperWidth + "px" }, 500);
-         $activeSlide.removeClass("active");
-         $slide.addClass("active");
+          if (index > $activeSlide.index()) {
+            $content.append($content.children().first());
+          } else {
+            $content.prepend($content.children().last());
+          }
 
+          // $content.animate({left: "-=" + $slide.position().left});
+          $slide.addClass("active");
+        }
 
-                //$slide.animate({ right: 0 }, 500).addClass("active");
-
-              };
-
-              $activeSlide = $(".active");
-            });
+        $activeSlide = $(".active");
+      });
 
       $(".next").click(function (e) {
         e.preventDefault();
